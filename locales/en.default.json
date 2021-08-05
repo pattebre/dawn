@@ -362,6 +362,10 @@
       "password": "Password",
       "password_confirm": "Confirm password",
       "submit": "Reset password"
+    },
+    "faq": {
+      "name": "Frequently Asked Questions",
+      "title": "Frequently Asked Questions"
     }
   },
   "gift_cards": {

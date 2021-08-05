@@ -1598,6 +1598,63 @@
       "presets": {
         "name": "Video"
       }
+    },
+    "faq": {
+      "name": "Frequently Asked Questions",
+      "settings": {
+        "title": {
+          "label": "Heading"
+        },
+        "title_level": {
+          "label": "Title Heading Level",
+          "options__h1": {
+            "label": "H1"
+          },
+          "options__h2": {
+            "label": "H2"
+          },
+          "options__h3": {
+            "label": "H3"
+          },
+          "options__h4": {
+            "label": "H4"
+          },
+          "options__h5": {
+            "label": "H5"
+          },
+          "options__h6": {
+            "label": "H6"
+          }
+        },
+        "background_style": {
+          "label": "Secondary background",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "Show as column background"
+          },
+          "options__3": {
+            "label": "Show as section background"
+          }
+        }
+      },
+      "blocks": {
+        "faq_entry": {
+          "name": "FAQ Entry",
+          "settings": {
+            "question": {
+              "label": "Question"
+            },
+            "answer": {
+              "label": "Answer"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Frequently Asked Questions"
+      }
     }
   }
 }

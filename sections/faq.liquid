@@ -1,0 +1,111 @@
+{{ 'section-faq.css' | asset_url | stylesheet_tag }}
+<div class="faq background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
+    {%- if section.settings.title != empty -%}
+        <{{ section.settings.title_level }}>{{ section.settings.title }}</{{ section.settings.title_level }}>
+    {%- endif -%}
+
+    <dl class="faq-list" id="faq-{{ section.id }}" role="list">
+        {%- for block in section.blocks -%}
+            <dt class="faq-question">{{ block.settings.question }}</dt>
+            <dd class="faq-answer">{{ block.settings.answer }}</dd>
+        {%- endfor -%}
+    </dl>
+</div>
+
+{% schema %}
+{
+    "name": "t:sections.faq.name",
+    "class": "spaced-section spaced-section--full-width",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Frequently Asked Questions",
+            "label": "t:sections.faq.settings.title.label"
+        },
+        {
+            "type": "select",
+            "id": "title_level",
+            "default": "h1",
+            "label": "t:sections.faq.settings.title_level.label",
+            "options": [
+                {
+                    "value": "h1",
+                    "label": "t:sections.faq.settings.title_level.options__h1.label"
+                },
+                {
+                    "value": "h2",
+                    "label": "t:sections.faq.settings.title_level.options__h2.label"
+                },
+                {
+                    "value": "h3",
+                    "label": "t:sections.faq.settings.title_level.options__h3.label"
+                },
+                {
+                    "value": "h4",
+                    "label": "t:sections.faq.settings.title_level.options__h4.label"
+                },
+                {
+                    "value": "h5",
+                    "label": "t:sections.faq.settings.title_level.options__h5.label"
+                },
+                {
+                    "value": "h6",
+                    "label": "t:sections.faq.settings.title_level.options__h6.label"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "background_style",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "t:sections.faq.settings.background_style.options__1.label"
+                },
+                {
+                    "value": "primary",
+                    "label": "t:sections.faq.settings.background_style.options__2.label"
+                },
+                {
+                    "value": "secondary",
+                    "label": "t:sections.faq.settings.background_style.options__3.label"
+                }
+            ],
+            "default": "primary",
+            "label": "t:sections.faq.settings.background_style.label"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "faq_entry",
+            "name": "t:sections.faq.blocks.faq_entry.name",
+            "settings": [
+              {
+                "type": "richtext",
+                "id": "question",
+                "default": "<p>How much wood could a woodchuck chuck, if a woodchuck could chuck wood?</p>",
+                "label": "t:sections.faq.blocks.faq_entry.settings.question.label"
+              },
+              {
+                "type": "richtext",
+                "id": "answer",
+                "default": "<p>He would chuck, he would, as much as he could, and chuck as much wood as a woodchuck would if a woodchuck could chuck wood.</p>",
+                "label": "t:sections.faq.blocks.faq_entry.settings.answer.label"
+              }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "t:sections.faq.name",
+            "blocks": [
+                {
+                    "type": "faq_entry"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
